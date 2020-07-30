@@ -1,12 +1,12 @@
 ﻿/// <summary>
-/// Implementation of the confusion spell
+/// Implementation of the magic shield spell
 /// </summary>
 
 using System.Collections.Generic;
 
-public class ConfusionSpell : Spell
+public class MagicShieldSpell : Spell
 {
-    public ConfusionSpell() : base("Confusion", SpellType.OFFENSIVE)
+    public MagicShieldSpell() : base("Magic Shield", SpellType.DEFENSIVE)
     {
     }
 
@@ -18,27 +18,20 @@ public class ConfusionSpell : Spell
     {
         if (potentialTargets.Count > 0)
         {
-			// note: the spell doesn't work on holy units
             UnitStack toTarget = potentialTargets[0];
             int qty = toTarget.GetTotalQty();
             int candidateQty;
             for (int i = 1; i < potentialTargets.Count; i++)
             {
                 candidateQty = potentialTargets[i].GetTotalQty();
-                if (toTarget.IsAffectedBy(this) ||
-					toTarget.GetUnitType().IsHoly() ||
-					(candidateQty > qty &&
-					!potentialTargets[i].IsAffectedBy(this) &&
-					!potentialTargets[i].GetUnitType().IsHoly()))
+                if (toTarget.IsAffectedBy(this) || (candidateQty > qty && !potentialTargets[i].IsAffectedBy(this)))
                 {
                     toTarget = potentialTargets[i];
                     qty = candidateQty;
                 }
             }
-            if (!toTarget.IsAffectedBy(this) && !toTarget.GetUnitType().IsHoly())
-            {
-                toTarget.AffectBySpell(this);
-            }
+            toTarget.AffectBySpell(this);
         }
     }
+
 }
