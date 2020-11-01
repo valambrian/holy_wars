@@ -13,7 +13,7 @@ public class Combat
     public event EventHandler<EventArgs> WoundChecksStarted;
     public event EventHandler<EventArgs> Finished;
 
-	// the province where combat is happening
+    // the province where combat is happening
     private Province _province;
     private List<UnitStack> _attackers;
     private List<UnitStack> _defenders;
@@ -227,7 +227,7 @@ public class Combat
     /// <summary>
     /// Are there more attacks to resolve?
     /// </summary>
-    /// <returns>Whether there are atacks to resolve</returns>
+    /// <returns>Whether there are attacks to resolve</returns>
     public bool AreThereUnresolvedAttacks()
     {
         return _attackerRollResults.Count + _defenderRollResults.Count > 0;
