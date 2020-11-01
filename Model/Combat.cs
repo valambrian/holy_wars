@@ -434,7 +434,7 @@ public class Combat
 
 
     /// <summary>
-	/// Resolve combat
+    /// Resolve combat
     /// Used by the game to resolve NPC-to-NPC battles
     /// and by Strategos to plan invasions
     /// </summary>
@@ -463,7 +463,7 @@ public class Combat
     }
 
     /// <summary>
-	/// Execute the decision to retreat
+    /// Execute the decision to retreat
     /// </summary>
     public void Retreat()
     {
@@ -476,7 +476,7 @@ public class Combat
     #region private functionality
 
     /// <summary>
-	/// Get an attack roll result collection
+    /// Get an attack roll result collection
     /// </summary>
     /// <returns>An attack roll result collection selected</returns>
     private AttackRollResultsCollection GetAnAttackRollResultsCollection()
@@ -499,7 +499,7 @@ public class Combat
     }
 
     /// <summary>
-	/// Go through attack roll result collections and select the first non-empty one
+    /// Go through attack roll result collections and select the first non-empty one
     /// </summary>
     /// <param name="allAttacks">All remaining roll result collections</param>
     /// <returns>A non-empty attack roll result collection or null</returns>
@@ -817,7 +817,7 @@ public class Combat
 
     /// <summary>
     /// End spells
-	/// Remove summoned units, remove spell effects from regular ones
+    /// Remove summoned units, remove spell effects from regular ones
     /// </summary>
     private void EndSpells(List<UnitStack> units)
     {
@@ -850,7 +850,7 @@ public class Combat
 
     /// <summary>
     /// End combat
-	/// Perform cleanup, run survival checks on wounded units
+    /// Perform cleanup, run survival checks on wounded units
     /// </summary>
     private void EndCombat()
     {
