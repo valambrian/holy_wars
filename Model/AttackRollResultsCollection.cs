@@ -87,10 +87,10 @@ public class AttackRollResultsCollection
     }
 
     /// <summary>
-    /// Remove an attack roll result from the collection
+    /// Get a collection element by index
     /// </summary>
-    /// <param name="result">Attack roll result to remove</param>
-    /// <returns>Whether the operation was successful</returns>
+    /// <param name="i">Element's index in the collection</param>
+    /// <returns>Attack roll result corresponding to the index</returns>
     public AttackRollResult GetAt(int i)
     {
         return _model[i];
