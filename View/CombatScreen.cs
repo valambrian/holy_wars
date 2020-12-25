@@ -30,9 +30,6 @@ public class CombatScreen: MonoBehaviour
     [SerializeField]
     private Button _skipStackButton;
 
-    //[SerializeField]
-    //private Button _skipPhaseButton;
-
     [SerializeField]
     private Button _skipTurnButton;
 
@@ -115,7 +112,6 @@ public class CombatScreen: MonoBehaviour
         _attackButton.gameObject.SetActive(true);
         _retreatButton.gameObject.SetActive(_model.IsAttackerPC());
         _skipStackButton.gameObject.SetActive(false);
-        //_skipPhaseButton.gameObject.SetActive(false);
         _skipTurnButton.gameObject.SetActive(false);
         _phaseDescription.text = "Attack Or Retreat?";
     }
@@ -125,7 +121,6 @@ public class CombatScreen: MonoBehaviour
         _attackButton.gameObject.SetActive(false);
         _retreatButton.gameObject.SetActive(false);
         _skipStackButton.gameObject.SetActive(true);
-        //_skipPhaseButton.gameObject.SetActive(true);
         _skipTurnButton.gameObject.SetActive(true);
         _skipStack = false;
         _skipPhase = false;
@@ -413,7 +408,7 @@ public class CombatScreen: MonoBehaviour
                 }
             }
             // else panic - there should be no case when there are unresolved attacks
-            // but the model can't return an attack colleciton
+            // but the model can't return an attack collection
         }
     }
 
@@ -456,7 +451,6 @@ public class CombatScreen: MonoBehaviour
 
                 // cover the case when the game selects
                 // an NPC defender who's offscreen
-
                 bool areProcessingAttackers = false;
                 List<UnitStack> stacks = _model.GetUnitStacks(areProcessingAttackers);
                 int index = stacks.FindIndex(a => a == _currentDefender);
@@ -508,7 +502,7 @@ public class CombatScreen: MonoBehaviour
                 _model.ResolveCurrentAttack(false);
             }
         }
-        // else panic - if it's not player's turn select a defender, the model should not return null
+        // else panic - if it's not the player's turn select a defender, the model should not return null
     }
 
     /// <summary>
@@ -657,7 +651,6 @@ public class CombatScreen: MonoBehaviour
     {
         _model.WoundChecksStarted -= OnWoundChecksStarted;
         DestroyAttackViews();
-        //UnityEngine.SceneManagement.SceneManager.LoadScene("StrategicMap");
     }
 
     private IEnumerator PlayEndOfCombatAnimations()
