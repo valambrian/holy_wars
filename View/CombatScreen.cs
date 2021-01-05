@@ -140,7 +140,7 @@ public class CombatScreen: MonoBehaviour
         }
         // NOTE: potentially, we can be smarter
         // and destroy fewer stack views
-        // instead assigning new models to existing stacks
+        // by assigning new models to existing stacks instead
         // but since it's only a prototype, use brute force
         DestroyAllUnitStackViews();
         CreateUnitStackViewsForSide(_attackersSpawnPoints);
