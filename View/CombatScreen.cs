@@ -283,7 +283,7 @@ public class CombatScreen: MonoBehaviour
 
     /// <summary>
     /// Called when "Attack" button is pressed
-    /// If the are no unresolved attacks this phase,
+    /// If there are no unresolved attacks this phase,
     /// move forward
     /// </summary>
     public void Attack()
