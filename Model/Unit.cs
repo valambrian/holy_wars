@@ -13,7 +13,7 @@ public class Unit
     /// <param name="data">Serialized unit data</param>
     /// <param name="unitType">Type of the unit</param>
     public Unit(UnitData data, UnitType unitType)
-	{
+    {
         _data = new UnitData(data);
         _unitType = unitType;
     }
@@ -68,7 +68,7 @@ public class Unit
 
     /// <summary>
     /// Increase the number of combatants in the unit
-	/// Or decrease it if the parameter is negative
+    /// Or decrease it if the parameter is negative
     /// </summary>
     /// <param name="delta">The additional number of combatants</param>
     public void AddQuantity(int delta)
