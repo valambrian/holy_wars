@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -11,25 +11,28 @@ public class SpriteCollection
 	[SerializeField]
 	private TextAsset spriteData;
 
-    private char[] separators = { ',', ':' };
+    	private char[] separators = { ',', ':' };
 
-    private Vector2 pivot = new Vector2(0f, 0f);
-    private float pixelsToUnits = 32.0f;
+    	private Vector2 pivot = new Vector2(0f, 0f);
+    	private float pixelsToUnits = 32.0f;
 
-    private Dictionary<string, Texture2D> _textures = new Dictionary<string, Texture2D>();
-    private Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>();
+    	private Dictionary<string, Texture2D> _textures = new Dictionary<string, Texture2D>();
+    	private Dictionary<string, Sprite> _sprites = new Dictionary<string, Sprite>();
 
-    public Dictionary<string, Texture2D> Textures
+	
+    	public Dictionary<string, Texture2D> Textures
 	{
 		get {return _textures;}
 	}
 
-    public Dictionary<string, Sprite> Sprites
-    {
-        get { return _sprites; }
-    }
+	
+    	public Dictionary<string, Sprite> Sprites
+    	{
+        	get { return _sprites; }
+    	}
 
-    public void ParseData()
+	
+    	public void ParseData()
 	{
 		if (this.spriteData == null)
 		{
@@ -48,7 +51,6 @@ public class SpriteCollection
 		int x, y, width, height;
 		while ( (currentLine = reader.ReadLine()) != null )
 		{
-			//Debug.Log("-->" + currentLine);
 			string[] values = currentLine.Split(this.separators);
 			if(values.Length == 5)
 			{
@@ -82,10 +84,10 @@ public class SpriteCollection
 				newTexture.Apply();
 				_textures[name] = newTexture;
 
-                Sprite newSprite = Sprite.Create(this.spriteSheet, new Rect(x, y, width, height), pivot, pixelsToUnits);
-                this._sprites[name] = newSprite;
-            }
-            else
+                		Sprite newSprite = Sprite.Create(this.spriteSheet, new Rect(x, y, width, height), pivot, pixelsToUnits);
+                		this._sprites[name] = newSprite;
+            		}
+            		else
 			{
 				Debug.LogError("SpriteCollection: sprite data file not found or not readable");
 			}
